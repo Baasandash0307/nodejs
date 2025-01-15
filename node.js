@@ -19,10 +19,10 @@
 
 
 
-    //  CREATE OPERATION
-// 1. read data from file
-// 2. update data
-// 3. write data on the file
+// //      CREATE OPERATION
+// // 1. read data from file
+// // 2. update data
+// // 3. write data on the file
 
 // import fs from 'fs';
 // function createStudent(student) {
@@ -36,7 +36,7 @@
 //     // 3 
 //     fs.writeFileSync('example.json', JSON.stringify(data))
 // }
-// createStudent({name : "bat", seatNumber : "2A"})
+// createStudent({name : "bat", seatNumb    er : "2A"})
 
 
 
@@ -65,13 +65,29 @@
 
 
 
-
-    //READ FUNCTION
-    import fs from 'fs';
+//     //READ FUNCTION
+// import fs from 'fs';
     
-    function readStudents(){
+// function readStudents(){
+// const json = fs.readFileSync('example.json', 'utf-8');
+// const data = JSON.stringify(json)
+// console.log(data);
+// }
+// readStudents()
+
+
+
+
+    //UPDATE FUNCTION
+
+import fs, { writeFileSync } from 'fs';
+
+function updateStudents(id){
+
     const json = fs.readFileSync('example.json', 'utf-8');
-    const data = JSON.stringify(json)
-    console.log(data);
+    const data = JSON.parse(json);
+
+
 }
-readStudents()
+updateStudents()
+
