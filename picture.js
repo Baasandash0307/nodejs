@@ -1,11 +1,10 @@
 
 const sharp = require('sharp');
 
-let jpg = [1];
+let jpg = [1,2];
 
 jpg.map(item => {
-    sharp('./input/pic.jpg')
-    .toFile('./output/pic.webp')
-})  
-
+    sharp(`./input/${item}.jpg`)
+    .toFile(`./output/${item}.webp`)
+})
 
