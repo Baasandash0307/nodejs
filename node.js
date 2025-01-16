@@ -36,7 +36,7 @@
 //     // 3 
 //     fs.writeFileSync('example.json', JSON.stringify(data))
 // }
-// createStudent({name : "bat", seatNumb    er : "2A"})
+// createStudent({name : "bat", seatNumber : "2A"})
 
 
 
@@ -61,33 +61,37 @@
 //     fs.writeFileSync('example.json', JSON.stringify(filteredData))
 
 // }
-// deleteStudent("1A")
+// deleteStudent("")
 
 
 
-//     //READ FUNCTION
-// import fs from 'fs';
+    // READ FUNCTION
+import fs from 'fs';
     
-// function readStudents(){
-// const json = fs.readFileSync('example.json', 'utf-8');
-// const data = JSON.stringify(json)
-// console.log(data);
-// }
-// readStudents()
+function readStudents(){
+const json = fs.readFileSync('example.json', 'utf-8');
+const data = JSON.parse(json)
+
+return data 
+}
 
 
 
 
-    //UPDATE FUNCTION
 
-import fs, { writeFileSync } from 'fs';
+//     // UPDATE FUNCTION
 
-function updateStudents(id){
+function updateStudents(id, student){
 
     const json = fs.readFileSync('example.json', 'utf-8');
     const data = JSON.parse(json);
 
-
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id == id){
+            data[i] = {...data[i], ...student}
+        }
+    }
+    fs.writeFileSync('example.json', JSON.stringify(data))
 }
-updateStudents()
+updateStudents("2", {name: "baldan", seatNumber: "123"})
 
